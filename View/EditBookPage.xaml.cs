@@ -14,6 +14,8 @@ using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 using _21120127_Week04.ModelView;
 using Windows.Storage.Pickers;
+using WinUI3Localizer;
+using _21120127_Week04.Utils;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -60,12 +62,12 @@ namespace _21120127_Week04.View
             {
                 // Get the absolute path of the selected file
                 string absolutePath = file.Path;
-                System.Diagnostics.Debug.WriteLine($"Absolute Path: {absolutePath}");
+                LogUtils.Debug($"Absolute Path: {absolutePath}");
 
                 // Compute the relative path based on a known base directory
                 string baseDirectory = Windows.ApplicationModel.Package.Current.InstalledLocation.Path;
                 string relativePath = Utils.FileUtils.GetRelativePath(absolutePath, baseDirectory);
-                System.Diagnostics.Debug.WriteLine($"Relative Path: {relativePath}");
+                LogUtils.Debug($"Relative Path: {relativePath}");
 
                 // Set the cover image
                 BookFormModelView.CurrentBook.CoverImageData = Utils.FileUtils.GetBytes(absolutePath);
@@ -74,7 +76,20 @@ namespace _21120127_Week04.View
 
         private void LangComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            // Get the selected item
+            if (e.AddedItems.Count > 0)
+            {
+                string selectedLanguage = e.AddedItems[0].ToString();
+                LogUtils.Debug($"Selected Language: {selectedLanguage}");
+
+                if (selectedLanguage == "EN")
+                {
+                    Localizer.Get().SetLanguage("en");
+                }
+                else if (selectedLanguage == "VN")
+                {
+                    Localizer.Get().SetLanguage("vn");
+                }
+            }
         }
 
         private void DarkModeToggleSwitch_Toggled(object sender, RoutedEventArgs e)

@@ -7,6 +7,7 @@
     xmlns:conv="using:_21120127_Week04.Converter"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:l="using:WinUI3Localizer"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -35,7 +36,7 @@
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Cover:"
+                <TextBlock l:Uids.Uid="Cover_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -50,7 +51,7 @@
                             Grid.Column="2"
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
-                    <Button x:Name="PickAPhotoButton" Content="Choose a picture"
+                    <Button x:Name="PickAPhotoButton" l:Uids.Uid="PickAPhoto_Button"
                         Click="PickAPhotoButton_Click" Margin="0,0,0,10"/>
                 </StackPanel>
             </Grid>
@@ -60,7 +61,7 @@
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="ISBN:"
+                <TextBlock l:Uids.Uid="ISBN_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -76,7 +77,7 @@
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Title:"
+                <TextBlock l:Uids.Uid="Title_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -92,7 +93,7 @@
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Author:"
+                <TextBlock l:Uids.Uid="Author_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -108,7 +109,7 @@
                     <ColumnDefinition Width="40*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="PublishedYear:"
+                <TextBlock l:Uids.Uid="PublishedYear_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -125,7 +126,7 @@
                     <ColumnDefinition Width="30*"/>
                     <ColumnDefinition Width="60*"/>
                 </Grid.ColumnDefinitions>
-                <TextBlock Text="Price:"
+                <TextBlock l:Uids.Uid="Price_TextBlock"
                            Grid.Column="0"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Stretch"/>

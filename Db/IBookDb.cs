@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Windows.Storage;
 using Windows.Storage.Provider;
 using Microsoft.UI.Xaml.Controls;
+using _21120127_Week04.Utils;
 
 namespace _21120127_Week04.Db
 {
@@ -74,7 +75,7 @@ namespace _21120127_Week04.Db
             try
             {
                 string jsonString = JsonSerializer.Serialize(book);
-                System.Diagnostics.Debug.WriteLine("Serialized JSON: " + jsonString);
+                LogUtils.Debug("Serialized JSON: " + jsonString);
 
                 // Write the JSON string to the file
                 using (var stream = await _file.OpenStreamForWriteAsync())
