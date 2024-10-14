@@ -117,4 +117,28 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PickAPhoto_Button.Content" xml:space="preserve">
+    <value>Chọn một file</value>
+  </data>
+  <data name="ISBN_TextBlock.Text" xml:space="preserve">
+    <value>Số ĐK:</value>
+  </data>
+  <data name="Title_TextBlock.Text" xml:space="preserve">
+    <value>Tựa sách:</value>
+  </data>
+  <data name="Author_TextBlock.Text" xml:space="preserve">
+    <value>Tác giả:</value>
+  </data>
+  <data name="PublishedYear_TextBlock.Text" xml:space="preserve">
+    <value>Năm XB:</value>
+  </data>
+  <data name="Price_TextBlock.Text" xml:space="preserve">
+    <value>Giá:</value>
+  </data>
+  <data name="Cover_TextBlock.Text" xml:space="preserve">
+    <value>Bìa:</value>
+  </data>
+  <data name="Save_Button.Content" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
 </root>

@@ -151,7 +151,7 @@
 
         <Rectangle Height="20"/>
 
-        <Button Name="btnSave"
+        <Button l:Uids.Uid="Save_Button"
         Content="Save"
         HorizontalAlignment="Center"
         VerticalAlignment="Center"

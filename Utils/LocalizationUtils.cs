@@ -19,7 +19,7 @@ namespace _21120127_Week04.Utils
 
             string resourceFileName = "Resources.resw";
             await CreateStringResourceFileIfNotExists(stringsFolder, "en", resourceFileName);
-            await CreateStringResourceFileIfNotExists(stringsFolder, "vn", resourceFileName);
+            await CreateStringResourceFileIfNotExists(stringsFolder, "vn", "Resources.vn.resw");
 
             ILocalizer localizer = await new LocalizerBuilder()
                 .AddStringResourcesFolderForLanguageDictionaries(stringsFolder.Path)
@@ -69,7 +69,7 @@ namespace _21120127_Week04.Utils
 
             if (shouldCopy)
             {
-                _ = await sourceFile.CopyAsync(languageFolder, resourceFileName, NameCollisionOption.ReplaceExisting);
+                _ = await sourceFile.CopyAsync(languageFolder, "Resources.resw", NameCollisionOption.ReplaceExisting);
             }
         }
 

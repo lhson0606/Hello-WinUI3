@@ -138,4 +138,7 @@
   <data name="Cover_TextBlock.Text" xml:space="preserve">
     <value>Bìa:</value>
   </data>
+  <data name="Save_Button.Content" xml:space="preserve">
+    <value>Lưu</value>
+  </data>
 </root>
