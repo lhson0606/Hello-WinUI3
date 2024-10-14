@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "21120127_Week04 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "21120127_Week04 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
