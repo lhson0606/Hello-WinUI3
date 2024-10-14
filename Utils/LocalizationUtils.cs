@@ -10,22 +10,33 @@ namespace _21120127_Week04.Utils
 {
     public class LocalizationUtils
     {
+        public static readonly string RESOURCE_FILE_NAME = "lang";
+        public static readonly string RESOURCE_FILE_EXTENSION = "resx";
+        public static readonly string RESOURCE_ROOT_FOLDER = "Resources";
+        public static readonly string RESOURCE_LANG_FOLDER = "Languages";
+        public static readonly string RESOURCE_FILE_DEFAULT = "default";
+
         public static async Task InitializeLocalizer()
         {
             StorageFolder localFolder = ApplicationData.Current.LocalFolder;
-            StorageFolder stringsFolder = await localFolder.CreateFolderAsync(
-              "Strings",
-               CreationCollisionOption.OpenIfExists);
+            //Create Resources folder if not exists
+            StorageFolder resourcesFolder = await localFolder.CreateFolderAsync(
+                RESOURCE_ROOT_FOLDER,
+                CreationCollisionOption.OpenIfExists);
+            //Create Languages folder inside Resources folder if not exists
+            StorageFolder languagesFolder = await resourcesFolder.CreateFolderAsync(
+                RESOURCE_LANG_FOLDER,
+                CreationCollisionOption.OpenIfExists);
 
-            string resourceFileName = "Resources.resw";
-            await CreateStringResourceFileIfNotExists(stringsFolder, "en", resourceFileName);
-            await CreateStringResourceFileIfNotExists(stringsFolder, "vn", resourceFileName);
+            await CreateStringResourceFileIfNotExists(languagesFolder, RESOURCE_FILE_DEFAULT);
+            await CreateStringResourceFileIfNotExists(languagesFolder, "en");
+            await CreateStringResourceFileIfNotExists(languagesFolder, "vn");
 
             ILocalizer localizer = await new LocalizerBuilder()
                 .AddStringResourcesFolderForLanguageDictionaries(stringsFolder.Path)
                 .SetOptions(options =>
                 {
-                    options.DefaultLanguage = "vn";
+                    options.DefaultLanguage = "en";
                 })
                 .Build();
 
@@ -40,11 +51,14 @@ namespace _21120127_Week04.Utils
             }
         }
 
-        private static async Task CreateStringResourceFileIfNotExists(StorageFolder stringsFolder, string language, string resourceFileName)
+        private static async Task CreateFolderIfNotExists(StorageFolder parentFolder, string folderName)
         {
-            StorageFolder languageFolder = await stringsFolder.CreateFolderAsync(
-                language,
-                CreationCollisionOption.OpenIfExists);
+            await parentFolder.CreateFolderAsync(folderName, CreationCollisionOption.OpenIfExists);
+        }
+
+        private static async Task CreateStringResourceFileIfNotExists(StorageFolder langFolder, string language)
+        {
+            string languageFileName = GetResourceFileName(language);
 
             StorageFile? existingFile = await languageFolder.TryGetItemAsync(resourceFileName) as StorageFile;
             string resourceFilePath = System.IO.Path.Combine(stringsFolder.Name, language, resourceFileName);
@@ -77,6 +91,18 @@ namespace _21120127_Week04.Utils
         {
             Uri resourcesFileUri = new($"ms-appx:///{filePath}");
             return await StorageFile.GetFileFromApplicationUriAsync(resourcesFileUri);
+        }
+
+        private static string GetResourceFileName(string language)
+        {
+            if (language == RESOURCE_FILE_DEFAULT)
+            {
+                return $"{RESOURCE_FILE_NAME}.{RESOURCE_FILE_EXTENSION}";
+            }
+            else
+            {
+                return $"{RESOURCE_FILE_NAME}.{language}.{RESOURCE_FILE_EXTENSION}";
+            }
         }
 
     }

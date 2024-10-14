@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace _21120127_Week04.Resources.Language {
+namespace _21120127_Week04.Resources.Languages {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace _21120127_Week04.Resources.Language {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("_21120127_Week04.Resources.Language.lang", typeof(lang).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("_21120127_Week04.Resources.Languages.lang", typeof(lang).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -57,6 +57,69 @@ namespace _21120127_Week04.Resources.Language {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Author:.
+        /// </summary>
+        internal static string Author_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("Author_TextBlock.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cover:.
+        /// </summary>
+        internal static string Cover_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("Cover_TextBlock.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ISBN.
+        /// </summary>
+        internal static string ISBN_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("ISBN_TextBlock.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Choose a file:.
+        /// </summary>
+        internal static string PickAPhoto_Button_Content {
+            get {
+                return ResourceManager.GetString("PickAPhoto_Button.Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Price:.
+        /// </summary>
+        internal static string Price_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("Price_TextBlock.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Published year:.
+        /// </summary>
+        internal static string PublishedYear_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("PublishedYear_TextBlock.Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Title:.
+        /// </summary>
+        internal static string Title_TextBlock_Text {
+            get {
+                return ResourceManager.GetString("Title_TextBlock.Text", resourceCulture);
             }
         }
     }

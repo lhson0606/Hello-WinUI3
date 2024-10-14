@@ -117,4 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="PickAPhoto_Button.Content" xml:space="preserve">
+    <value>Choose a file</value>
+  </data>
+  <data name="ISBN_TextBlock.Text" xml:space="preserve">
+    <value>ISBN:</value>
+  </data>
+  <data name="Title_TextBlock.Text" xml:space="preserve">
+    <value>Title:</value>
+  </data>
+  <data name="Author_TextBlock.Text" xml:space="preserve">
+    <value>Author:</value>
+  </data>
+  <data name="PublishedYear_TextBlock.Text" xml:space="preserve">
+    <value>PublishedYear:</value>
+  </data>
+  <data name="Price_TextBlock.Text" xml:space="preserve">
+    <value>Price:</value>
+  </data>
+  <data name="Cover_TextBlock.Text" xml:space="preserve">
+    <value>Cover</value>
+  </data>
 </root>

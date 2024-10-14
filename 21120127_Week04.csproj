@@ -72,11 +72,6 @@
   </ItemGroup>
   <!-- Copy all "Resources.resw" files in the "Strings" folder to the output folder. -->
   <ItemGroup>
-    <Content Include="Strings\**\*.resw">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Resources\Language\lang.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
