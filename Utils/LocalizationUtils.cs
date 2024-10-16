@@ -46,7 +46,7 @@ namespace _21120127_Week04.Utils
                 language,
                 CreationCollisionOption.OpenIfExists);
 
-            StorageFile? existingFile = await languageFolder.TryGetItemAsync(resourceFileName) as StorageFile;
+            StorageFile existingFile = await languageFolder.TryGetItemAsync(resourceFileName) as StorageFile;
             string resourceFilePath = System.IO.Path.Combine(stringsFolder.Name, language, resourceFileName);
             StorageFile sourceFile = await LoadStringResourcesFileFromAppResource(resourceFilePath);
 

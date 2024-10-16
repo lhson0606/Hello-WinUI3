@@ -15,6 +15,7 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Themes\DarkTheme.xaml" />
+    <None Remove="Themes\DefaultTheme.xaml" />
     <None Remove="Themes\LightTheme.xaml" />
     <None Remove="View\EditBookPage.xaml" />
   </ItemGroup>
@@ -98,5 +99,10 @@
     <Content Update="Strings\vn\Resources.vn.resw">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Themes\DefaultTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>

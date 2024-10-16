@@ -16,6 +16,7 @@ using _21120127_Week04.ModelView;
 using Windows.Storage.Pickers;
 using WinUI3Localizer;
 using _21120127_Week04.Utils;
+using System.Resources;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -27,6 +28,7 @@ namespace _21120127_Week04.View
     /// </summary>
     public sealed partial class EditBookPage : Page
     {
+
         public BookFormModelView BookFormModelView { get; set; } = new BookFormModelView();
 
         public EditBookPage()
@@ -92,14 +94,26 @@ namespace _21120127_Week04.View
             }
         }
 
-        private void DarkModeToggleSwitch_Toggled(object sender, RoutedEventArgs e)
+        private async void tsDarkMode_Toggled(object sender, RoutedEventArgs e)
         {
-            // Get the toggle switch state
-        }
+            if(!BookFormModelView.IsInitialized)
+            {
+                BookFormModelView.IsInitialized = true;
+                return;
+            }
 
-        private void ToggleSwitch_Toggled(object sender, RoutedEventArgs e)
-        {
             // Get the toggle switch state
+            var app = App.Current as App;
+            Uri uriTheme = tsDarkMode.IsOn ? new Uri("ms-appx:///Themes/DarkTheme.xaml") : new Uri("ms-appx:///Themes/LightTheme.xaml");
+            String themeKey = tsDarkMode.IsOn ? "Dark" : "Light";
+            // Apply the theme
+            app.ChangeTheme(themeKey, true);
+            //await app.RestartAppAsync();
+            //SolidColorBrush foreground = Resources["ButtonForegroundThemeBrush"] as SolidColorBrush;
+            //btnSave.Foreground = foreground;
+            await DialogUtils.ShowDialogAsync("Change Theme", "The theme has been changed successfully! You will need to restart the app for the action to take effects.",
+                XamlRoot
+                );
         }
     }
 }

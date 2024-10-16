@@ -3,7 +3,8 @@
     x:Class="_21120127_Week04.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:_21120127_Week04">
+    xmlns:local="using:_21120127_Week04"
+    >
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -11,6 +12,11 @@
                 <!-- Other merged dictionaries here -->
             </ResourceDictionary.MergedDictionaries>
             <!-- Other app resources here -->
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Dark" Source="Themes/DarkTheme.xaml"/>                
+                <ResourceDictionary x:Key="Default" Source="Themes/DefaultTheme.xaml"/>
+                <ResourceDictionary x:Key="Light" Source="Themes/LightTheme.xaml"/>
+            </ResourceDictionary.ThemeDictionaries>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

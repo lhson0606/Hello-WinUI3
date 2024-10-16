@@ -9,7 +9,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:l="using:WinUI3Localizer"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource PrimaryColor}">
 
     <!-- #Resource-->
     <Page.Resources>
@@ -23,10 +23,11 @@
     VerticalAlignment="Center"
     Width="600"
     Height="400"
-    BorderBrush="Black"
+    BorderBrush="{ThemeResource TextColor}"
     BorderThickness="1"
     Padding="5"
-    CornerRadius="5">
+    CornerRadius="5"
+        >
 
         <!-- #Book Form-->
         <StackPanel>
@@ -37,6 +38,7 @@
                     <ColumnDefinition Width="20*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock l:Uids.Uid="Cover_TextBlock"
+                   Foreground="{ThemeResource TextColor}"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
@@ -52,10 +54,13 @@
                             VerticalAlignment="Center"
                             HorizontalAlignment="Center">
                     <Button x:Name="PickAPhotoButton" l:Uids.Uid="PickAPhoto_Button"
-                        Click="PickAPhotoButton_Click" Margin="0,0,0,10"/>
+                            Click="PickAPhotoButton_Click" Margin="0,0,0,10"
+                            Foreground="{ThemeResource PrimaryColor}"
+                            Background="{ThemeResource TextColor}"
+                            />
                 </StackPanel>
             </Grid>
-            
+
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40*"/>
@@ -64,12 +69,16 @@
                 <TextBlock l:Uids.Uid="ISBN_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
+                   Foreground="{ThemeResource TextColor}"
                    Grid.Column="0"/>
-                <TextBox Name="txtBookPublisher"
-                 Text="{x:Bind BookFormModelView.CurrentBook.ISBN,
-                        Mode=TwoWay,
-                        UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Column="1"/>
+                <TextBox 
+                    Name="txtBookPublisher"
+                     Text="{x:Bind BookFormModelView.CurrentBook.ISBN,
+                            Mode=TwoWay,
+                            UpdateSourceTrigger=PropertyChanged}"
+                    Foreground="{ThemeResource PrimaryColor}"
+Background= "{ThemeResource TextColor}"
+                    Grid.Column="1"/>
             </Grid>
 
             <Grid>
@@ -80,8 +89,12 @@
                 <TextBlock l:Uids.Uid="Title_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
-                   Grid.Column="0"/>
+                   Grid.Column="0"
+                   Foreground="{ThemeResource TextColor}"
+                           />
                 <TextBox Name="txtBookTitle"
+                         Foreground="{ThemeResource PrimaryColor}"
+Background= "{ThemeResource TextColor}"
                  Text="{x:Bind BookFormModelView.CurrentBook.Title,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
@@ -98,10 +111,12 @@
                    HorizontalAlignment="Stretch"
                    Grid.Column="0"/>
                 <TextBox Name="txtBookAuthor"
-                 Text="{x:Bind BookFormModelView.CurrentBook.Author,
+                        Foreground="{ThemeResource PrimaryColor}"
+Background= "{ThemeResource TextColor}"
+                        Text="{x:Bind BookFormModelView.CurrentBook.Author,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Column="1"/>
+                        Grid.Column="1"/>
             </Grid>
 
             <Grid>
@@ -112,12 +127,16 @@
                 <TextBlock l:Uids.Uid="PublishedYear_TextBlock"
                    VerticalAlignment="Center"
                    HorizontalAlignment="Stretch"
-                   Grid.Column="0"/>
+                   Grid.Column="0"
+                    Foreground="{ThemeResource TextColor}"
+                           />
                 <TextBox Name="txtBookPublishedYear"
                  Text="{x:Bind BookFormModelView.CurrentBook.PublishedYear,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Column="1"/>
+                 Grid.Column="1"
+                         Foreground="{ThemeResource PrimaryColor}"
+Background= "{ThemeResource TextColor}"/>
             </Grid>
 
             <Grid>
@@ -129,7 +148,8 @@
                 <TextBlock l:Uids.Uid="Price_TextBlock"
                            Grid.Column="0"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Stretch"/>
+                           HorizontalAlignment="Stretch"
+                           Foreground="{ThemeResource TextColor}"/>
                 <TextBlock Name="txtFormattedPrice"
                     Text="{x:Bind BookFormModelView.CurrentBook.Price,
                     Mode=TwoWay,
@@ -139,12 +159,16 @@
                     VerticalAlignment="Center"
                     HorizontalAlignment="Stretch"
                     TextAlignment="Center"
-                    Grid.Column="1"/>
+                    Grid.Column="1"
+                           Foreground="{ThemeResource TextColor}"/>
                 <TextBox Name="txtBookPrice"
                      Text="{x:Bind BookFormModelView.CurrentBook.Price,
                         Mode=TwoWay,
                         UpdateSourceTrigger=PropertyChanged}"
-                    Grid.Column="2"/>
+                    Grid.Column="2"
+                         Foreground="{ThemeResource PrimaryColor}"
+Background= "{ThemeResource TextColor}"
+                         />
             </Grid>
         </StackPanel>
         <!--#End Book Form-->
@@ -152,11 +176,29 @@
         <Rectangle Height="20"/>
 
         <Button l:Uids.Uid="Save_Button"
-        Content="Save"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center"
-        Width="160"
-        Command="{x:Bind BookFormModelView.SaveBookCommand}"/>
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Width="160"
+                x:Name="btnSave"
+                Background="{ThemeResource TextColor}"
+                Foreground="{ThemeResource PrimaryColor}"
+                Command="{x:Bind BookFormModelView.SaveBookCommand}">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup>
+                    <VisualState x:Name="Pressed">
+                        <Storyboard>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Button.Background)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPressedBackgroundThemeBrush}" />
+                            </ObjectAnimationUsingKeyFrames>
+                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Button.Foreground)">
+                                <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource ButtonPressedForegroundThemeBrush}" />
+                            </ObjectAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+        </Button>
+
 
         <Rectangle Height="10"/>
         <!--#Settings-->
@@ -177,8 +219,10 @@
                        TextAlignment="Center"
                        VerticalAlignment="Center"
                        />
-            <ToggleSwitch Toggled="DarkModeToggleSwitch_Toggled"
-                          VerticalAlignment="Center"
+            <ToggleSwitch VerticalAlignment="Center"
+                          x:Name="tsDarkMode"
+                          IsOn="{x:Bind BookFormModelView.IsDarkMode, Mode=OneWay}"
+                          Toggled="tsDarkMode_Toggled"
                           />
         </StackPanel>
         <!--#End Settings-->
