@@ -34,7 +34,7 @@ namespace _21120127_Week04.View
         public EditBookPage()
         {
             this.InitializeComponent();
-            this.DataContext = BookFormModelView;
+            //DataContext = BookFormModelView;
         }
 
         private async void PickAPhotoButton_Click(object sender, RoutedEventArgs e)
